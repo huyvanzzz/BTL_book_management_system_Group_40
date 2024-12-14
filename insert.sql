@@ -193,3 +193,21 @@ VALUES
 (8, 4, 8),
 (9, 5, 9),
 (10, 5, 10);
+-- Tắt chế độ safe_updates.
+SET SQL_SAFE_UPDATES = 0;
+
+-- update OrderItems
+UPDATE OrderItems
+JOIN Books ON OrderItems.BookID = Books.BookID
+SET Orderitems.TotalPrice = Orderitems.Quantity * Books.Price;
+
+-- update Payments
+UPDATE Payments
+JOIN Orders ON Payments.OrderID = Orders.OrderID
+JOIN OrderItems ON Orders.OrderID = OrderItems.OrderID
+JOIN Shipping ON Orders.OrderID = Shipping.OrderID
+SET Payments.PaymentAmount = (
+    (SELECT SUM(OrderItems.TotalPrice)
+     FROM OrderItems 
+     WHERE OrderItems.OrderID = Orders.OrderID) + Shipping.ShippingFee
+);
