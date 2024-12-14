@@ -98,6 +98,7 @@ CREATE TABLE Payments (
     PaymentDate DATE,
     PaymentAmount DECIMAL(10, 2),
     PaymentMethod VARCHAR(50),
+    Status ENUM('Pending', 'Completed') DEFAULT 'Pending',
     FOREIGN KEY (OrderID) REFERENCES Orders(OrderID) ON DELETE CASCADE ON UPDATE CASCADE
 );
 

@@ -23,5 +23,9 @@ BEGIN
 END$$
 
 DELIMITER ;
+
+-- Drop Procedure nếu cần(Xoá -- ở đầu đi để thực hiện lệnh).
+-- DROP PROCEDURE IF EXISTS CalculateMonthlyRevenue;
+
 -- Gọi hàm để tính tổng doanh thu tháng 9 năm 2024.
 CALL CalculateMonthlyRevenue(2024, 9);
