@@ -20,13 +20,13 @@ BEGIN
     WHERE OrderID = p_OrderID;
 
     IF currentStatus = 'Completed' THEN
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Số tiền thanh toán phải lớn hơn 0';
+        SIGNAL SQLSTATE '45000';
     END IF;
 
     -- Kiểm tra số tiền thanh toán có hợp lệ không
     IF p_PaymentAmount <= 0 THEN
         -- Nếu số tiền thanh toán không hợp lệ, kích hoạt lỗi và thực hiện ROLLBACK
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Số tiền thanh toán phải lớn hơn 0';
+        SIGNAL SQLSTATE '45000';
     END IF;
 
     -- Lấy tổng số tiền của đơn hàng từ bảng Payments
@@ -37,7 +37,7 @@ BEGIN
     -- Kiểm tra nếu số tiền thanh toán không khớp với tổng số tiền của đơn hàng
     IF ROUND(totalAmount, 2) != ROUND(p_PaymentAmount, 2) THEN
         -- Nếu số tiền thanh toán không khớp, rollback và hiển thị lỗi
-        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Số tiền thanh toán không khớp với tổng số tiền đơn hàng';
+        SIGNAL SQLSTATE '45000';
     END IF;
 
     -- Nếu không có lỗi, cập nhật trạng thái thanh toán thành 'Completed'
