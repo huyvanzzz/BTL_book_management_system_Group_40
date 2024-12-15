@@ -99,18 +99,18 @@ VALUES
 (10, 10, 10, 5, 374.95);
 
 -- Insert into Shipping
-INSERT INTO Shipping (ShippingID, OrderID, ShippingDate, ShippingMethod, TrackingNumber, ShippingAddress, ShippingFee) 
+INSERT INTO Shipping (ShippingID, OrderID, ShippingDate, ShippingMethod, TrackingNumber, ShippingAddress, ShippingFee, ShippingStatus) 
 VALUES 
-(1, 1, '2024-01-02', 'Standard', 'TRK001', '123 Main St', 5.00),
-(2, 2, '2024-02-03', 'Express', 'TRK002', '456 Elm St', 10.00),
-(3, 3, '2024-03-04', 'Standard', 'TRK003', '789 Oak St', 5.00),
-(4, 4, '2024-04-05', 'Express', 'TRK004', '101 Pine St', 10.00),
-(5, 5, '2024-05-06', 'Standard', 'TRK005', '202 Maple St', 5.00),
-(6, 6, '2024-06-07', 'Express', 'TRK006', '303 Birch St', 10.00),
-(7, 7, '2024-07-08', 'Standard', 'TRK007', '404 Cedar St', 5.00),
-(8, 8, '2024-08-09', 'Express', 'TRK008', '505 Walnut St', 10.00),
-(9, 9, '2024-09-10', 'Standard', 'TRK009', '606 Redwood St', 5.00),
-(10, 10, '2024-10-11', 'Express', 'TRK010', '707 Fir St', 10.00);
+(1, 1, '2024-01-02', 'Standard', 'TRK001', '123 Main St', 5.00, 'Pending'),
+(2, 2, '2024-02-03', 'Express', 'TRK002', '456 Elm St', 10.00, 'Shipped'),
+(3, 3, '2024-03-04', 'Standard', 'TRK003', '789 Oak St', 5.00, 'Processing'),
+(4, 4, '2024-04-05', 'Express', 'TRK004', '101 Pine St', 10.00, 'Delivered'),
+(5, 5, '2024-05-06', 'Standard', 'TRK005', '202 Maple St', 5.00, 'Shipped'),
+(6, 6, '2024-06-07', 'Express', 'TRK006', '303 Birch St', 10.00, 'Processing'),
+(7, 7, '2024-07-08', 'Standard', 'TRK007', '404 Cedar St', 5.00, 'Pending'),
+(8, 8, '2024-08-09', 'Express', 'TRK008', '505 Walnut St', 10.00, 'Shipped'),
+(9, 9, '2024-09-10', 'Standard', 'TRK009', '606 Redwood St', 5.00, 'Delivered'),
+(10, 10, '2024-10-11', 'Express', 'TRK010', '707 Fir St', 10.00, 'Processing');
 
 -- Insert into Payments
 INSERT INTO Payments (PaymentID, OrderID, PaymentDate, PaymentAmount, PaymentMethod) 

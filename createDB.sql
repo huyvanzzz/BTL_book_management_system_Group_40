@@ -88,7 +88,8 @@ CREATE TABLE Shipping (
     ShippingMethod VARCHAR(50),
     TrackingNumber VARCHAR(50),
     ShippingAddress VARCHAR(255),
-    ShippingFee DECIMAL(10,2)
+    ShippingFee DECIMAL(10,2),
+    ShippingStatus ENUM('Pending', 'Processing', 'Shipped', 'Delivered', 'Cancelled') DEFAULT 'Pending'
 );
 
 -- Create Payments Table
