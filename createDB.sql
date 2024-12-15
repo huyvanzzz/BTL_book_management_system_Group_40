@@ -49,7 +49,7 @@ CREATE TABLE Books (
     ISBN VARCHAR(13),
     Price DECIMAL(10, 2) DEFAULT 0.00 CHECK (Price >= 0),
     CategoryID INT,
-   StockQuantity INT DEFAULT 0,
+    StockQuantity INT DEFAULT 0,
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
