@@ -11,7 +11,7 @@ BEGIN
     -- Kiểm tra nếu số lượng tồn kho âm
     IF (SELECT StockQuantity FROM Books WHERE BookID = NEW.BookID) < 0 THEN
         SIGNAL SQLSTATE '45000'
-        SET MESSAGE_TEXT = 'Stock quantity cannot be negative. Check book availability.';
+        SET MESSAGE_TEXT = 'The order quantity exceeds available stock. Please check the stock.';
     END IF;
 END;
 $$
