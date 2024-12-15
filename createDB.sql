@@ -47,9 +47,9 @@ CREATE TABLE Books (
     PublisherID INT,
     PublicationYear INT,
     ISBN VARCHAR(13),
-    Price DECIMAL(10, 2) DEFAULT 0.00 CHECK (Price >= 0),
+    Price DECIMAL(10, 2),
     CategoryID INT,
-    StockQuantity INT DEFAULT 0,
+    StockQuantity INT,
     FOREIGN KEY (CategoryID) REFERENCES Categories(CategoryID) ON DELETE SET NULL ON UPDATE CASCADE
 );
 
@@ -119,7 +119,7 @@ CREATE TABLE Reviews (
 CREATE TABLE Discounts (
     DiscountID INT PRIMARY KEY,
     DiscountName VARCHAR(100),
-    DiscountAmount DECIMAL(5, 2) CHECK (DiscountAmount >= 0),
+    DiscountAmount DECIMAL(5, 2),
     StartDate DATE,
     EndDate DATE
 );
