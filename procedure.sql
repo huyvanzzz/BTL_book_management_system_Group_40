@@ -6,12 +6,12 @@ BEGIN
     DECLARE totalRevenue DECIMAL(10, 2);
 
     -- Tính tổng doanh thu của tháng từ Payments
-    SELECT IFNULL(SUM(P.PaymentAmount),0)
+    SELECT IFNULL(SUM(Payments.PaymentAmount),0)
     INTO totalRevenue
-    FROM Payments P
-    JOIN Orders O ON P.OrderID = O.OrderID
-    WHERE YEAR(P.PaymentDate) = p_Year
-    AND MONTH(P.PaymentDate) = p_Month;
+    FROM Payments
+    JOIN Orders ON Payments.OrderID = Orders.OrderID
+    WHERE YEAR(Payments.PaymentDate) = p_Year
+    AND MONTH(Payments.PaymentDate) = p_Month;
 
     -- Hiển thị doanh thu
     SELECT totalRevenue AS MonthlyRevenue;
