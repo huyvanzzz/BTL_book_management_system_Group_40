@@ -47,7 +47,7 @@ SELECT Categories.CategoryName, SUM(Subquery.Quantity) AS TotalQuantity
 FROM (
     SELECT Books.CategoryID, OrderItems.Quantity
     FROM OrderItems
-    INNER JOIN Books ON OrderItems.BookID = Books.BookID
+	JOIN Books ON OrderItems.BookID = Books.BookID
 ) AS Subquery
 JOIN Categories ON Subquery.CategoryID = Categories.CategoryID
 GROUP BY Categories.CategoryName;
